@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function allPosts()
+    {
+        return Inertia::render('Post/All');
+    }
+
     public function newPost()
     {
         return Inertia::render('Post/AddNew');

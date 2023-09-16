@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::group(["prefix"=>'posts'], function(){
+        Route::get('/', [PostController::class, 'allPosts'])->name('posts.all');
         Route::get('/new', [PostController::class, 'newPost'])->name('posts.add');
         Route::post('/store', [PostController::class, 'postSubmit'])->name('posts.store');
     });
