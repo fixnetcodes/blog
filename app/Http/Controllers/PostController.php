@@ -11,7 +11,9 @@ class PostController extends Controller
 {
     public function allPosts()
     {
-        return Inertia::render('Post/All');
+        return Inertia::render('Post/All', [
+            'posts' => Post::latest()->paginate(10),
+        ]);
     }
 
     public function newPost()
