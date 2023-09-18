@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\{PostController, RolesController};
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/new', [PostController::class, 'newPost'])->name('posts.add');
         Route::post('/store', [PostController::class, 'postSubmit'])->name('posts.store');
     });
+
+    Route::resource('roles', RolesController::class);
 });
 
 require __DIR__.'/auth.php';
