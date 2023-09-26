@@ -15,9 +15,8 @@ class RolesController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Roles/index', [
-            'roles' => Role::latest()->paginate(5)
-        ]);
+        $roles = Role::all();
+        return Inertia::render('Roles/index', [ 'roles' => $roles ]);
     }
 
     /**
@@ -25,7 +24,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Roles/Create');
     }
 
     /**
